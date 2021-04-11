@@ -18,7 +18,7 @@
 
             <div class='col-md-5'>
               <div class='form-check form-check-inline'>
-                <input type='radio' class='form-check-input' name='movie_type' id='type1' value='余興ムービー' checked>
+                <input type='radio' class='form-check-input' name='movie_type' id='type1' value='余興ムービー' v-model="movieType">
                 <label for='type1' class='form-check-label'>余興ムービー</label>
               </div>
               <!-- form-check -->
@@ -27,7 +27,7 @@
 
             <div class='col-md-5'>
               <div class='form-check form-check inline'>
-                <input type='radio' class='form-check-input' name='movie_type' id='type2' value='サプライズムービー'>
+                <input type='radio' class='form-check-input' name='movie_type' id='type2' value='サプライズムービー' v-model="movieType">
                 <label for='type2' class='form-check-label'>サプライズムービー</label>
               </div>
               <!-- form-check form-check inline -->
@@ -36,7 +36,7 @@
 
             <div class='col-md-5'>
               <div class='form-check form-check-inline'>
-                <input type='radio' class='form-check-input' name='movie_type' id='type3' value="生い立ちムービー">
+                <input type='radio' class='form-check-input' name='movie_type' id='type3' value="生い立ちムービー" v-model="movieType">
                 <label for='type3' class='form-check-label'>生い立ちムービー</label>
               </div>
               <!--form-check form-check-inline-->
@@ -45,7 +45,7 @@
 
             <div class='col-md-5'>
               <div class='form-check form-check-inline'>
-                <input type='radio' class='form-check-input' name='movie_type' id='type4' value="オープニングムービー">
+                <input type='radio' class='form-check-input' name='movie_type' id='type4' value="オープニングムービー" v-model="movieType">
                 <label for='type4' class='form-check-label'>オープニングムービー</label>
               </div>
               <!--form-check form-check-inline-->
@@ -66,7 +66,7 @@
           <span class='badge badge-danger'>必須</span>
         </label>
         <div class='col-md-9'>
-          <input type='date' class='form-control' id='wedding_date' placeholder='日付をお選びください'>
+          <input type='date' class='form-control' id='wedding_date' placeholder='日付をお選びください' v-model="wedding_date">
           <small class='form-text'>結婚式のお日にちを選択してください。</small>
         </div>
         <!-- col-md-9 -->
@@ -80,7 +80,7 @@
           <span class='badge badge-danger'>必須</span>
         </label>
         <div class='col-md-9'>
-          <input type='date' class='form-control' id='delivery_date' min='2019-01-03' placeholder="日付をお選びください">
+          <input type='date' class='form-control' id='delivery_date' v-bind:min="tommorow" placeholder="日付をお選びください" v-model="delivery_date">
           <small class='form-text'>
             挙式日の1週間前までにDVDが必要な場合が多いため、仕上がり予定日を挙式日の1週間前に設定しております。
           </small>
@@ -95,7 +95,7 @@
         </label>
         <div class='col-md-9'>
           <div class='input-group'>
-            <input type='text' class='form-control text-right' id='sum_base' value="32,400" readonly>
+            <input type='text' class='form-control text-right' id='sum_base' v-bind:value="taxedBasePrice | number_format" readonly>
             <div class='input-group-append'>
               <label class='input-group-text'>円</label>
             </div>
@@ -204,3 +204,6 @@
   <!-- container -->
 </div>
 <!-- app -->
+
+<script src='https://jp.vuejs.org/js/vue.min.js'></script>
+<script src="./_js/main.js"></script>
